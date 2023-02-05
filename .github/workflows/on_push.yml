@@ -10,7 +10,7 @@ jobs:
       uses: appleboy/ssh-action@v0.1.7
       with:
         host: 138.68.130.22
-        key: ${{ secrets.MY_KEYS }}
+        key: ${{ secrets.MY_KEY }}
         port: 22
         script: |
                 cd /home/winc/My-Proxy
