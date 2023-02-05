@@ -1,16 +1,17 @@
 name: remote ssh command
-on: [push]
+on: push
 jobs:
 
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh commands using keys
       uses: appleboy/ssh-action@v0.1.7
       with:
         host: 138.68.130.22
         key: ${{ secrets.MY_KEYS }}
-        
-        script: cd cd /home/winc/My-Proxy
-                git pull
+        port: 22
+        script: |
+                cd /home/winc/My-Proxy
+                git pull origin master
