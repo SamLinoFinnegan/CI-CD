@@ -9,8 +9,8 @@ jobs:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.7
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: 8000
-        script: echo "whoami "
+        host: 138.68.130.22
+        key: ${{ secrets.MY_KEYS }}
+        
+        script: cd cd /home/winc/My-Proxy
+                git pull
