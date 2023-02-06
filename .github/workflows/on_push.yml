@@ -27,14 +27,14 @@ jobs:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
-    steps:
-    - name: executing remote ssh commands using keys
-      uses: appleboy/ssh-action@v0.1.7
-      with:
-        host: 138.68.130.22
-        username: root
-        key: ${{ secrets.MY_KEY }}
-        port: 22
-        script: |
-                cd /home/winc/My-Proxy
-                git pull origin main
+    
+      - name: executing remote ssh commands using keys
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: 138.68.130.22
+          username: root
+          key: ${{ secrets.MY_KEY }}
+          port: 22
+          script: |
+                  cd /home/winc/My-Proxy
+                  git pull origin main
