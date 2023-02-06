@@ -26,9 +26,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  build:
-    name: Deploy to server
-    runs-on: ubuntu-latest
+  
     steps:
     - name: executing remote ssh commands using keys
       uses: appleboy/ssh-action@v0.1.7
