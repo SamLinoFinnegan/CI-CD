@@ -9,7 +9,7 @@ def proxy(name="index"):
         query = request.form["url"]
         res = requests.get(query)
         
-        return res.text242
+        return res.text
     else:
         return render_template("index.html", title=name)
 
