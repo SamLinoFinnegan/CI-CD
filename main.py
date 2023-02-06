@@ -1,4 +1,3 @@
-import webbrowser
 from flask import Flask, render_template, request
 import requests
 app = Flask(__name__)
@@ -10,7 +9,7 @@ def proxy(name="index"):
         query = request.form["url"]
         res = requests.get(query)
         
-        return res.text
+        return res.text242
     else:
         return render_template("index.html", title=name)
 
