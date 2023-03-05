@@ -1,4 +1,4 @@
-In order to complete this task one of the most important elements was working with an SSH key. I had not done that before, but now used an SSH-key to connect to both the digital ocean server and github. A SSH key is a secure method of authentication.
+In order to complete this task one of the most important elements was working with an SSH key. I had not done that before, but now used an SSH-key to connect to both the digital ocean server and GitHub. A SSH key is a secure method of authentication.
 Also the use of GitHub Actions was new to me it took a while to get a grasp of the yaml syntax. But the use of GitHub actions very useful: it will trigger a set of actions on a certain GitHub event (for example push).
 To store all my private information, the SSH keys and the server information for digital ocean, I used GitHub secrets. This is a method to store and encrypt your data, but can access it through variables in GitHub Actions.
 
