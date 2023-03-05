@@ -6,5 +6,4 @@ To ensure the security of my private information, including the SSH keys and ser
 
 I encountered some challenges during this project. Initially, I had trouble getting pytest to work, but I resolved it by installing pytest. I also struggled with the workflow logic. By default, several actions run simultaneously, but I only wanted to update the files on the server if the tests passed. To achieve this, I used 'needs: run-tests' in my deploy action.
 
-The most significant problem I faced was connecting to the Digital Ocean server. Although I had it working at one point, I eventually lost connection and couldn't figure out why. After trying several solutions, I ended up starting over with a new droplet and a new SSH key. While not the most elegant solution, it did resolve the issue.
-
+The most significant problem I faced was connecting to the Digital Ocean server
