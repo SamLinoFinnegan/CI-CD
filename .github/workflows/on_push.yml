@@ -1,25 +1,37 @@
 name: remote ssh command
-on: push
+on:
+  push:
+    branches: [main]
 jobs:
-  build:
-    # Name the Job
-    name: Lint Code Base
-    # Set the agent to run on
+  run-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8.6
+      - name: Install Dependencies
+        run: 
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flask
+      - name: Run tests
+        run: pytest
+  deploy:
+    needs: run-tests
     runs-on: ubuntu-latest
 
-   
+    name: Lint Code Base
     steps:
-      
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          # Full git history is needed to get a proper
-          # list of changed files within `super-linter`
+         
           fetch-depth: 0
 
-      ################################
-      # Run Linter against code base #
-      ################################
+     
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
@@ -31,10 +43,10 @@ jobs:
       - name: executing remote ssh commands using keys
         uses: appleboy/ssh-action@v0.1.7
         with:
-          host: 138.68.130.22
-          username: root
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
           key: ${{ secrets.MY_KEY }}
-          port: 22
+          port: ${{ secrets.PORT }}
           script: |
                   cd /home/winc/My-Proxy
                   git pull origin main
